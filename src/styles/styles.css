@@ -1,0 +1,89 @@
+*{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html,body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+/*************************************************************************/
+
+.content{
+    height: 100%;
+    width: 100%;
+}
+
+.content-main{
+    height:100%;
+    width: 100%;
+    position: relative;
+}
+
+/**************************************************************************/
+
+.content-main--title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content-main--title h1{
+    font-size: 60px;
+    margin: 0;
+}
+
+.content-main--title h4{
+    font-size: 20px;
+    font-style: italic;
+    margin:0;
+}
+
+/***************************************************************************/
+
+.content-main--sessions{
+    display: flex;
+    position: absolute;
+    justify-content: space-around;
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content-main--sessions .session{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid grey;
+}
+
+
+/****************************************************************************/
+.content-competitors{
+    margin-top: 90px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/* .content-competitors--header{
+} */
+
+.content-competitors--board{
+    margin-top: 60px;
+    margin-left: inherit;
+    margin-right: inherit;
+}
+
+.competitor-container{
+    border-bottom: 1px solid grey;
+    margin-bottom: 10px;
+}
