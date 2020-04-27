@@ -34,28 +34,64 @@
         <section class="content-competitors">
             <div class="content-competitors--header">
                 <h1>Competitors</h1>
+                <div class="toggle">
+                    <!-- <button onclick="openScore(event)">Beginner</button>
+                    <button onclick="openScore(event)">Intermediate</button> -->
+                    <ul>
+                        <li id="beginnerTab" class="toggle-01 active" onclick="openScore(event, 'beginner')" name="tab">Beginner</li>
+                        <li id="intermediateTab" class="toggle-02" onclick="openScore(event, 'intermediate')" name="tab">Intermediate</li>
+                    </ul>
+                </div>
             </div>
-            <div class="content-competitors--board">
-                <div class="competitor-container">
-                    <p>Alex Torre</p>
-                    <div class="score-container">
-                        <div class="score-bar">
-                            <p>33,650</p>
+            <div id="intermediate" class="tabcontent">
+                <div class="content-competitors--board">
+                    <div class="competitor-container">
+                        <p>Alex Torre</p>
+                        <div class="score-container">
+                            <div class="score-bar">
+                                <p>33,650</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="content-competitors--board">
-                <div class="competitor-container">
-                    <p>Victoria Rendón</p>
-                    <div class="score-container">
-                        <div class="score-bar" style="width: 60%;">
-                            <p>20,589</p>
+            <div id="beginner" class="tabcontent">
+                <div class="content-competitors--board">
+                    <div class="competitor-container">
+                        <p>Victoria Rendón</p>
+                        <div class="score-container">
+                            <div class="score-bar" style="width: 60%;">
+                                <p>20,589</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
         </section>
     </main>
+
+    <script>
+
+        let intermediate = document.getElementById('intermediate');
+        intermediate.style.display = 'none';
+
+        function openScore(evt, level){
+            var tabcontent, tablinks;
+
+            tabcontent = document.getElementsByClassName('tabcontent');
+            for(let i=0; i<tabcontent.length; i++){
+                tabcontent[i].style.display = 'none';
+            }
+
+            tablinks = document.getElementsByName('tab');
+            for(let i=0; i<tablinks.length; i++){
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
+
+            document.getElementById(level).style.display = 'block';
+            evt.currentTarget.className += ' active';
+        }
+    </script>
 </body>
 </html>
