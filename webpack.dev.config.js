@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); //Archivo necesario pa
 
 module.exports = { //Aqui se tiene toda la configuración de lo que va a suceder. Modulo para exportar.
     entry: {
-        main: './src/index.js' //Punto de entrada, ahi vive el código inicial
+        main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.js'], //Punto de entrada, ahi vive el código inicial
     },
     output: { //A donde se va a mandar el proyecto ya compilado listo para producción
         path: path.join(__dirname, 'dist'), //Hacia donde se va a enviar. Resolve es para saber donde se encuentra. __dirname para crear una carpeta 'dist' cuando sepa donde se encuentre.
@@ -47,6 +47,7 @@ module.exports = { //Aqui se tiene toda la configuración de lo que va a suceder
                 excludeChunks: [ 'server' ]
             }
         ),
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
     ]
 }

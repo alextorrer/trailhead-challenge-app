@@ -5,6 +5,10 @@ import 'tippy.js/dist/tippy.css';
 
 window.addEventListener('load', render);
 
+if(typeof(module.hot) !== 'undefined'){
+    module.hot.accept();
+}
+
 /* tippy('[data-tippy-content]', {
     trigger: 'click'
 }); */
