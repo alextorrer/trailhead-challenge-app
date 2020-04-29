@@ -500,11 +500,12 @@ module.exports = function (list, options) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.css */ "./src/styles/styles.css");
 /* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_styles_css__WEBPACK_IMPORTED_MODULE_0__);
-/* import getData from './utils/getData';
+/* harmony import */ var _utils_getData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/getData */ "./src/utils/getData.js");
 
 
-getData(); */
 
+const res = Object(_utils_getData__WEBPACK_IMPORTED_MODULE_1__["default"])();
+res.then((data) => console.log(data));
 
 /***/ }),
 
@@ -534,6 +535,31 @@ var update = api(content, options);
 
 
 module.exports = content.locals || {};
+
+/***/ }),
+
+/***/ "./src/utils/getData.js":
+/*!******************************!*\
+  !*** ./src/utils/getData.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const getData = async()=>{
+    try{
+        
+        const response = await fetch('/getData');
+        const data = await response.json();
+        return data;
+    }
+    catch(err){
+        console.error('Error en fetch ' + err);
+    }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (getData); 
 
 /***/ })
 
