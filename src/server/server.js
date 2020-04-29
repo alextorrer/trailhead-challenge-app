@@ -51,8 +51,5 @@ app.get('/getData', (req,res)=>{
 });
 
 
-
-//const SRC_DIR = path.dirname(__dirname);
-
 app.use(express.static(PROJ_DIR));
 app.listen(8080);

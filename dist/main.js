@@ -500,12 +500,11 @@ module.exports = function (list, options) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.css */ "./src/styles/styles.css");
 /* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_styles_css__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_getData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/getData */ "./src/utils/getData.js");
+/* harmony import */ var _utils_render__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/render */ "./src/utils/render.js");
 
 
 
-const res = Object(_utils_getData__WEBPACK_IMPORTED_MODULE_1__["default"])();
-res.then((data) => console.log(data));
+window.addEventListener('load', _utils_render__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 /***/ }),
 
@@ -538,6 +537,74 @@ module.exports = content.locals || {};
 
 /***/ }),
 
+/***/ "./src/templates/Competitor.js":
+/*!*************************************!*\
+  !*** ./src/templates/Competitor.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils_getCompetitors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/getCompetitors */ "./src/utils/getCompetitors.js");
+
+
+const Competitor = async(level)=>{
+    const competitors = await Object(_utils_getCompetitors__WEBPACK_IMPORTED_MODULE_0__["default"])(level);
+    var view = "";
+    competitors.forEach(competitor => {
+        view += `
+        <div class="content-competitors--board">
+            <div class="competitor-container">
+                <p>${competitor.Name}</p>
+                <div class="score-container">
+                    <div class="score-bar" style="width: 60%;">
+                        <p>${competitor.Account.Name}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+    });
+    return view;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Competitor);
+
+/***/ }),
+
+/***/ "./src/utils/getCompetitors.js":
+/*!*************************************!*\
+  !*** ./src/utils/getCompetitors.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _getData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getData */ "./src/utils/getData.js");
+
+
+const getCompetitors = async (level)=>{
+    const data = await Object(_getData__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    let competitors;
+
+    switch(level){
+        case 'beginner':
+            competitors = data.filter(competitor => competitor.Account.Name == 'sForce');
+            break;
+        case 'intermediate':
+            competitors = data.filter(competitor => competitor.Account.Name == 'GenePoint');
+            break;
+    }
+
+    return competitors;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (getCompetitors);
+
+/***/ }),
+
 /***/ "./src/utils/getData.js":
 /*!******************************!*\
   !*** ./src/utils/getData.js ***!
@@ -560,6 +627,30 @@ const getData = async()=>{
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (getData); 
+
+/***/ }),
+
+/***/ "./src/utils/render.js":
+/*!*****************************!*\
+  !*** ./src/utils/render.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _templates_Competitor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../templates/Competitor */ "./src/templates/Competitor.js");
+
+
+const render = async()=>{
+    const beginner = document.getElementById('beginner');
+    const intermediate = document.getElementById('intermediate');
+
+    beginner.innerHTML = await Object(_templates_Competitor__WEBPACK_IMPORTED_MODULE_0__["default"])('beginner');
+    intermediate.innerHTML = await Object(_templates_Competitor__WEBPACK_IMPORTED_MODULE_0__["default"])('intermediate');
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (render);
 
 /***/ })
 

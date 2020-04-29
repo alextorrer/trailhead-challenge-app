@@ -1,5 +1,4 @@
 import './styles/styles.css';
-import getData from './utils/getData';
+import render from './utils/render';
 
-const res = getData();
-res.then((data) => console.log(data));
+window.addEventListener('load', render);
