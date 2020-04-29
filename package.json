@@ -30,6 +30,7 @@
     "tippy.js": "^6.2.3",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^4.1.0",
+    "webpack-dev-middleware": "^3.7.2",
     "webpack-node-externals": "^1.7.2"
   }
 }

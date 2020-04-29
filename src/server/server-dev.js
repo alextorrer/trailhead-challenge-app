@@ -1,12 +1,19 @@
-const path = require('path');
-const express = require('express');
-const axios = require('axios');
-const app = express();
+import path from 'path';
+import express from 'express';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import config from '../../webpack.dev.config';
 
+const app = express();
+const compiler = webpack(config);
 const PROJ_DIR = __dirname;
 const HTML_FILE = path.join(PROJ_DIR, '/index.html');
 
 app.use(express.static(PROJ_DIR));
+
+app.use(webpackDevMiddleware(compiler, {
+    publicPath: config.output.publicPath
+}));
 
 const SF = {
     LoginUrl: 'https://login.salesforce.com/services/oauth2/token',
@@ -50,6 +57,16 @@ app.get('/getData', (req,res)=>{
         });
 });
 
+app.get('*', (req,res,next)=>{
+    compiler.outputFileSystem.readFile(HTML_FILE, (err, result)=>{
+        if(err){
+            return next(err);
+        }
+        res.set('content-type', 'text/html');
+        res.send(result);
+        res.end();
+    })
+});
 
-app.use(express.static(PROJ_DIR));
+
 app.listen(8080);

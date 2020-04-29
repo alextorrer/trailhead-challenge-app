@@ -2,7 +2,6 @@
 const path = require('path'); //Nos permite acceder a donde estamos en las carpetas. Ya sea local o en la nube.
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //Archivo necesario para trabajar con HTML.
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = { //Aqui se tiene toda la configuración de lo que va a suceder. Modulo para exportar.
     entry: {
@@ -13,6 +12,7 @@ module.exports = { //Aqui se tiene toda la configuración de lo que va a suceder
         publicPath: '/',
         filename: '[name].js', //Archivo listo para producción
     },
+    mode: 'development',
     target: 'web',
     devtool: 'source-map',
     module: { //Modulo con las reglas necesarias para utilizar. En este caso, babel.
@@ -47,9 +47,6 @@ module.exports = { //Aqui se tiene toda la configuración de lo que va a suceder
                 excludeChunks: [ 'server' ]
             }
         ),
-        /* new CopyWebpackPlugin([{
-            from: './src/styles/styles.css',
-            to: ''
-        }]) */
+        new webpack.NoEmitOnErrorsPlugin()
     ]
 }
