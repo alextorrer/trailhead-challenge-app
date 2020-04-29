@@ -10,7 +10,7 @@ const Competitor = async(level)=>{
             <div class="competitor-container">
                 <p>${competitor.Name}</p>
                 <div class="score-container">
-                    <div class="score-bar" style="width: 60%;" aria-describedby="tooltip">
+                    <div class="score-bar" style="width: 60%;" data-tippy-content="Tooltip">
                     <!--<div class="score-bar" style="width: ${getWidth(competitor.points)};">-->
                         <p>${competitor.Account.Name}</p>
                     </div>
