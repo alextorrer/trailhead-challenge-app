@@ -1,1 +1,90 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Trailhead Challenge App</title><link href="/main.css" rel="stylesheet"></head><body><main class="content"><section class="content-main"><div class="content-main--title slide-in" data-time="0.9s"><h1>Trailhead Challenge</h1><h4>by Student Group UADY</h4></div><div class="content-main--sessions"><div class="session slide-in" data-time="1.5s"><h2>Session 1</h2><h3>April 30, 2020</h3><p>6:00 pm a 8:00 pm</p></div><div class="session slide-in" data-time="1.5s"><h2>Session 2</h2><h3>May 9, 2020</h3><p>6:00 pm a 8:00 pm</p></div><div class="session slide-in" data-time="1.5s"><h2>Session 3</h2><h3>May 25, 2020</h3><p>6:00 pm a 8:00 pm</p></div></div></section><section class="content-competitors"><div class="content-competitors--header"><h1>Competitors</h1><div class="toggle"><ul><li id="beginnerTab" class="toggle-01 active" onclick='openScoreBoard(event,"beginner")' name="tab">Beginner</li><li id="intermediateTab" class="toggle-02" onclick='openScoreBoard(event,"intermediate")' name="tab">Intermediate</li></ul></div></div><div id="intermediate" class="tabcontent" style="display:none"></div><div id="beginner" class="tabcontent"></div></section></main><script>function openScoreBoard(e,t){var a,l;a=document.getElementsByClassName("tabcontent");for(let e=0;e<a.length;e++)a[e].style.display="none";l=document.getElementsByName("tab");for(let e=0;e<l.length;e++)l[e].className=l[e].className.replace("active","");document.getElementById(t).style.display="block",e.currentTarget.className+=" active"}</script><script src="/main.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trailhead Challenge App</title>
+</head>
+<body>
+    <main class="content">
+        <section class="content-main">
+            <div class="content-main--title slide-in" data-time="0.9s">
+                <h1>Trailhead Challenge</h1>
+                <h4>by Student Group UADY</h4>
+            </div>
+            <div class="content-main--sessions">
+                <div class="session slide-in" data-time="1.5s">
+                    <h2>Session 1</h2>
+                    <h3>April 30, 2020</h3>
+                    <p>6:00 pm a 8:00 pm</p>
+                </div>
+                <div class="session slide-in" data-time="1.5s">
+                    <h2>Session 2</h2>
+                    <h3>May 9, 2020</h3>
+                    <p>6:00 pm a 8:00 pm</p>
+                </div>
+                <div class="session slide-in" data-time="1.5s">
+                    <h2>Session 3</h2>
+                    <h3>May 25, 2020</h3>
+                    <p>6:00 pm a 8:00 pm</p>
+                </div>
+            </div>
+        </section>
+        <section class="content-competitors">
+            <div class="content-competitors--header">
+                <h1>Competitors</h1>
+                <div class="toggle">
+                    <ul>
+                        <li id="beginnerTab" class="toggle-01 active" onclick="openScoreBoard(event, 'beginner')" name="tab">Beginner</li>
+                        <li id="intermediateTab" class="toggle-02" onclick="openScoreBoard(event, 'intermediate')" name="tab">Intermediate</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="intermediate" class="tabcontent" style="display: none;">
+                <!-- <div class="content-competitors--board">
+                    <div class="competitor-container">
+                        <p>Alex Torre</p>
+                        <div class="score-container">
+                            <div class="score-bar">
+                                <p>33,650</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div id="beginner" class="tabcontent">
+                <!-- <div class="content-competitors--board">
+                    <div class="competitor-container">
+                        <p>Victoria Rendón</p>
+                        <div class="score-container">
+                            <div class="score-bar" style="width: 60%;">
+                                <p>20,589</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function openScoreBoard(evt, level){
+            var tabcontent, tablinks;
+
+            tabcontent = document.getElementsByClassName('tabcontent');
+            for(let i=0; i<tabcontent.length; i++){
+                tabcontent[i].style.display = 'none';
+            }
+
+            tablinks = document.getElementsByName('tab');
+            for(let i=0; i<tablinks.length; i++){
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
+
+            document.getElementById(level).style.display = 'block';
+            evt.currentTarget.className += ' active';
+        }  
+
+    </script>
+<script src="/main.js"></script></body>
+</html>
