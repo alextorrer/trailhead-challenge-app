@@ -1,4 +1,5 @@
 import getCompetitors from '../utils/getCompetitors';
+import getWidth from '../utils/getWidth';
 
 const Competitor = async(level)=>{
     const competitors = await getCompetitors(level);
@@ -9,7 +10,8 @@ const Competitor = async(level)=>{
             <div class="competitor-container">
                 <p>${competitor.Name}</p>
                 <div class="score-container">
-                    <div class="score-bar" style="width: 60%;">
+                    <div class="score-bar" style="width: 60%;" aria-describedby="tooltip">
+                    <!--<div class="score-bar" style="width: ${getWidth(competitor.points)};">-->
                         <p>${competitor.Account.Name}</p>
                     </div>
                 </div>
