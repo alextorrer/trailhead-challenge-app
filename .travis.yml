@@ -1,0 +1,32 @@
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+
+node_js:
+  - '12'
+
+git:
+  depth: 3
+
+scripts:
+  - yarn buildProd
+
+notifications:
+  email:
+    receiepents:
+      - alextorre0427@gmail.com
+      on_success: always
+      on_failure: always
+
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  keep-history: true
+  api_key: c203d8ae-0015-4829-b168-32938e4e69f6
+  app: trailhead-challenge-app
+  on:
+    repo: alextorrer/trailhead-challenge-app
+
