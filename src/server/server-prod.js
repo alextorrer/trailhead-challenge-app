@@ -52,4 +52,4 @@ app.get('/getData', (req,res)=>{
 
 
 app.use(express.static(PROJ_DIR));
-app.listen(8080);
+app.listen(process.env.PORT);
