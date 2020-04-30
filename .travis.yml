@@ -2,8 +2,8 @@ language: node_js
 
 cache:
   directories:
-    - node_modules
-    - ~/.npm
+  - node_modules
+  - ~/.npm
 
 node_js:
   - '12'
@@ -11,22 +11,21 @@ node_js:
 git:
   depth: 3
 
-scripts:
+script:
   - yarn buildProd
 
 notifications:
   email:
-    receiepents:
+    reciepients:
       - alextorre0427@gmail.com
-      on_success: always
-      on_failure: always
-
+    on_success: always
+    on_failure: always
+  
 deploy:
   provider: heroku
-  skip_cleanup: true
+  skip-cleanup: true
   keep-history: true
   api_key: c203d8ae-0015-4829-b168-32938e4e69f6
-  app: trailhead-challenge-app
+  app: platzi-store-backend-atr
   on:
-    repo: alextorrer/trailhead-challenge-app
-
+    repo: alextorrer/platzi-store-backend
