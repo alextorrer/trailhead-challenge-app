@@ -26,6 +26,6 @@ deploy:
   skip-cleanup: true
   keep-history: true
   api_key: c203d8ae-0015-4829-b168-32938e4e69f6
-  app: platzi-store-backend-atr
+  app: trailhead-challenge-app
   on:
-    repo: alextorrer/platzi-store-backend
+    repo: alextorrer/trailhead-challenge-app
