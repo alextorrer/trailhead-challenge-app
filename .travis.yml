@@ -11,12 +11,12 @@ node_js:
 git:
   depth: 3
 
-scripts:
+script:
   - yarn buildProd
 
 notifications:
   email:
-    reciepents:
+    reciepients:
       - alextorre0427@gmail.com
       on_success: always
       on_failure: always
